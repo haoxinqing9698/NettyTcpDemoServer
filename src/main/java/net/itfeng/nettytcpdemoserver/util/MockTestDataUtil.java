@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * TODO 描述类的用途，不修改请删除此行
+ * 生成mock数据
  *
  * @author itfeng
- * @since 2024/1/28 16:54
+ * @since 2024/2/24 16:54
  */
 public class MockTestDataUtil {
 
