@@ -40,8 +40,6 @@ public class ClientChannelContext {
      * 主动关闭所有在线通道
      */
     public static void closeAll() {
-        CLIENT_CHANNEL_CACHE.asMap().forEach((k, v) -> {
-            v.close();
-        });
+        CLIENT_CHANNEL_CACHE.asMap().forEach((k, v) -> v.close());
     }
 }

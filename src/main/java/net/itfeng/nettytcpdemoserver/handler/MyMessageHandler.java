@@ -14,10 +14,10 @@ public interface MyMessageHandler {
     DataTransPackageOuterClass.DataType getDataType();
 
     /**
-     * 判断是否支持该消息类型，mqtt中即判断正则topic与消息的实际topic是否匹配
+     * 根据业务pb数据类型判断该类型的数据是否由当前的handler处理
      *
-     * @param messageType
-     * @return
+     * @param dataType 业务数据类型
+     * @return 是否需要使用当前处理器处理
      */
-    boolean isSupport(DataTransPackageOuterClass.DataType messageType);
+    boolean isSupport(DataTransPackageOuterClass.DataType dataType);
 }

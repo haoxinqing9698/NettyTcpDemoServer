@@ -3,6 +3,7 @@ package net.itfeng.nettytcpdemoserver.context;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,11 +21,7 @@ public class TimeDiffContext {
 
     public static long getTimeDiff(String sn) {
         Long diff = TIME_DIFF_CACHE.getIfPresent(sn);
-        if (diff == null) {
-            return 0;
-        } else {
-            return diff;
-        }
+        return Objects.requireNonNullElse(diff,0L);
     }
 
     public static void putTimeDiff(String sn, long timeDiff) {
