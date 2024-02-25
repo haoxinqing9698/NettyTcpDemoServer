@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: NettyTcpDemoServer
+  profiles:
+    active: dev
+
+tcp:
+  # 给客户端下发多大的数据，字节数集合
+  push_msg_size_array: 300, 1000, 2000, 5000, 10000, 20000
+  # 每个大小的数据下发多少次
+  push_msg_count: 2000
+  # 服务端下发消息的间隔，单位ms
+  push_msg_interval: 50
+
+
+netty:
+  tcp:
+    port: 11100
+
+# 多线程参数
+thread_pools:
+  # 时间校准消息处理器线程池
+  message_handler_pool:
+    corePoolSize: 3
+    maxPoolSize: 10
+    queueCapacity: 25
+    threadNamePrefix: "message-handler-"
+  # mqtt消息发布线程池
+  message_push_pool:
+    corePoolSize: 3
+    maxPoolSize: 10
+    queueCapacity: 25
+    threadNamePrefix: "message-push-"
